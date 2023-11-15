@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  crimea-bot:
+    image: ipoglif/crimea-bot:latest
+    container_name: crimea-bot
+    labels:
+      - "com.centurylinklabs.watchtower.scope=myscope"
+    environment:
+      - BOT_TOKEN=6205622226:AAFC0FWHTbqIObNF2zWIGGrIvDyP6cs_1Pg
+      - DB_HOST=mysql
+      - DB_NAME=crimea_bot
+      - DB_DIALECT=mysql
+      - DB_PORT=3306
+      - DB_USER=user
+      - DB_PASS=aeG8oSN2
+    ports:
+      - 3031:3031
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - crimea-network

@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    command:
+      - --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=aeG8oSN2
+    volumes:
+      - ../init/01.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+    networks:
+      - crimea-network
+    healthcheck:
+      test: ["CMD", "mysql", "-U", "crimea_bot", "--password=aeG8oSN2"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+
+  adminer:
+    image: adminer:4.8.1
+    container_name: adminer
+    environment:
+      - ADMINER_DEFAULT_SERVER=mysql
+    ports:
+      - 3380:8080
+    networks:
+      - crimea-network
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: services-updater
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 15 --scope myscope
+    networks:
+      - crimea-network
+
+  #nginx:
+    #image: nginx
+    #container_name: services-nginx
+    #volumes:
+    #- ../:/var/www/myapp
+    #- ./nginx/config/nginx.conf:/init/test/nginx.conf
+    #ports:
+      #- '80:80'
+    #networks:
+      #- crimea-network
+    #depends_on:
+      #- tg-react-app
+
+networks:
+  crimea-network:
+    driver: bridge
