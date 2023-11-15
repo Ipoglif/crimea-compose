@@ -45,7 +45,7 @@ services:
     image: jareware/docker-volume-backup
     container_name: save-backups
     environment:
-      - BACKUP_CRON_EXPRESSION=* * * * *
+      - BACKUP_CRON_EXPRESSION=0 1 * * *
     volumes: 
      - mysql-volume:/backup/mysql-volume:ro
      - /root/backups:/archive   
