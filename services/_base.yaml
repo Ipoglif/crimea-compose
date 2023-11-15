@@ -9,6 +9,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=aeG8oSN2
     volumes:
+      - mysql-volume:/var/lib/mysql
       - ../init/01.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3307:3306"
@@ -40,18 +41,19 @@ services:
     networks:
       - crimea-network
 
-  #nginx:
-    #image: nginx
-    #container_name: services-nginx
-    #volumes:
-    #- ../:/var/www/myapp
-    #- ./nginx/config/nginx.conf:/init/test/nginx.conf
-    #ports:
-      #- '80:80'
-    #networks:
-      #- crimea-network
-    #depends_on:
-      #- tg-react-app
+  backup:
+    image: jareware/docker-volume-backup
+    container_name: save-backups
+    environment:
+      - BACKUP_CRON_EXPRESSION=* * * * *
+    volumes: 
+     - mysql-volume:/backup/mysql-volume:ro
+     - /root/backups:/archive   
+
+volumes:
+  mysql-volume:
+    name: crimea-services-mysql-volume
+    driver: local
 
 networks:
   crimea-network:
