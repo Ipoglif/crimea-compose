@@ -16,7 +16,7 @@ services:
     networks:
       - crimea-network
     healthcheck:
-      test: ["CMD", "mysql", "-U", "crimea_cities", "--password=admin"]
+      test: ["CMD", "mysql", "-U", "crimea_cities", "--password=p.L-wFVA1oRzM+"]
       interval: 5s
       timeout: 2s
       retries: 5
