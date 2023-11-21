@@ -8,7 +8,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=myscope"
     environment:
       - MYSQL_HOST=mysql
-      - MYSQL_PORT=3312
+      - MYSQL_PORT=3306
       - MYSQL_USER=user
       - MYSQL_PASSWORD=123456
       - MYSQL_DATABASE=crimea_cities
