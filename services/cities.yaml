@@ -2,18 +2,18 @@ version: "3.8"
 
 services:
   crimea-cities:
-    image: ipoglif/crimea-cities:latest
+    image: crimea-cities:latest
     container_name: crimea-cities
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"
     environment:
-      - DB_HOST=mysql
-      - DB_NAME=crimea_cities
-      - DB_DIALECT=mysql
-      - DB_PORT=3309
-      - DB_USER=user
-      - DB_PASS=aeG8oSN2
-      - CITIES_SERVICE_HOST=crimea-cities
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=crimea_cities
+      - SERVICE_HOST=crimea-cities
+      - SERVICE_PORT=3006
     ports:
       - 3006:3006
     depends_on:
