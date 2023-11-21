@@ -32,11 +32,28 @@ services:
       - crimea-network
 
   nginx:
-    image: nginx:latest
-    ports:
-    - 9090:80
+    image: jc21/nginx-proxy-manager:latest
+    container_name: services-nginx
     volumes:
-    - ../init/var/www/html:/docker-entrypoint-initdb.d/init.sql
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    networks:
+      - crimea-network
+
+  #nginx:
+    #image: nginx:latest
+    #container_name: nginx
+    #ports:
+    #- 9090:80
+    #volumes:
+    #- ../init/nginx/nginx.conf:/etc/nginx/nginx.conf
+    #- ../init/nginx/var/www/html:/docker-entrypoint-initdb.d/init.sql
+    #networks:
+      #- crimea-network
 
   watchtower:
     image: containrrr/watchtower
