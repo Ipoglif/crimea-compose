@@ -7,7 +7,7 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"
     environment:
-      - BOT_TOKEN=6205622226:AAFC0FWHTbqIObNF2zWIGGrIvDyP6cs_1Pg
+      - BOT_TOKEN=5751380436:AAGPQzmbP_e92A9GI4dWiP6z0dU4qqLFCyg
       - DB_HOST=mysql
       - DB_NAME=crimea_bot
       - DB_DIALECT=mysql
