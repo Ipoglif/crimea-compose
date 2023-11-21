@@ -10,7 +10,7 @@ services:
       - DB_HOST=mysql
       - DB_NAME=crimea_cities
       - DB_DIALECT=mysql
-      - DB_PORT=3306
+      - DB_PORT=3309
       - DB_USER=user
       - DB_PASS=aeG8oSN2
       - CITIES_SERVICE_HOST=crimea-cities
