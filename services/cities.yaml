@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   crimea-cities:
-    image: crimea-cities:latest
+    image: ipoglif/crimea-cities:latest
     container_name: crimea-cities
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"

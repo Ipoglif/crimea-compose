@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   crimea-geteway:
-    image: crimea-geteway:latest
+    image: ipoglif/crimea-geteway:latest
     container_name: crimea-geteway
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"
