@@ -31,6 +31,13 @@ services:
     networks:
       - crimea-network
 
+  nginx:
+    image: nginx:latest
+    ports:
+    - 9090:80
+    volumes:
+    - ../init/var/www/html:/docker-entrypoint-initdb.d/init.sql
+
   watchtower:
     image: containrrr/watchtower
     container_name: services-updater
