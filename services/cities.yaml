@@ -10,7 +10,7 @@ services:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
       - MYSQL_USER=user
-      - MYSQL_PASSWORD=123456
+      - MYSQL_PASSWORD=jvYn13AZZBe9J-Wg
       - MYSQL_DATABASE=crimea_cities
       - SERVICE_HOST=crimea-cities
       - SERVICE_PORT=3006

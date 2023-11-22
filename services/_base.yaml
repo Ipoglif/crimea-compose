@@ -7,7 +7,7 @@ services:
     command:
       - --default-authentication-plugin=caching_sha2_password
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=jvYn13AZZBe9J-Wg
     volumes:
       - mysql-volume:/var/lib/mysql
       - ../init/01.sql:/docker-entrypoint-initdb.d/init.sql
@@ -16,7 +16,7 @@ services:
     networks:
       - crimea-network
     healthcheck:
-      test: ["CMD", "mysql", "-U", "crimea_cities", "--password=p.L-wFVA1oRzM+"]
+      test: ["CMD", "mysql", "-U", "crimea_cities", "--password=jvYn13AZZBe9J-Wg"]
       interval: 5s
       timeout: 2s
       retries: 5

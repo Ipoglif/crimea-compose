@@ -13,7 +13,7 @@ services:
       - DB_DIALECT=mysql
       - DB_PORT=3306
       - DB_USER=user
-      - DB_PASS=aeG8oSN2
+      - DB_PASS=jvYn13AZZBe9J-Wg
     ports:
       - 3031:3031
     depends_on:
