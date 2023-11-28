@@ -14,6 +14,8 @@ services:
       - MYSQL_DATABASE=crimea_auth
       - SERVICE_HOST=crimea-auth
       - SERVICE_PORT=3001
+      - CRIMEA_JWT_ACCESS_SECRET=2U9srogDPr3q0dqhJgELgNc0Ti511Snk
+      - CRIMEA_JWT_REFRESH_SECRET=g0y6ojFyRMQgjF8irALMUgZCcFB7zn27
     ports:
       - 3001:3001
     depends_on:
