@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  crimea-users:
+    image: ipoglif/crimea-users:latest
+    container_name: crimea-users
+    labels:
+      - "com.centurylinklabs.watchtower.scope=myscope"
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=jvYn13AZZBe9J-Wg
+      - MYSQL_DATABASE=crimea_users
+      - SERVICE_HOST=crimea-users
+      - SERVICE_PORT=3002
+    ports:
+      - 3002:3002
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - crimea-network

@@ -7,6 +7,10 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"
     environment:
+      - AUTH_SERVICE_HOST=crimea-auth
+      - AUTH_SERVICE_PORT=3001
+      - USERS_SERVICE_HOST=crimea-users
+      - USERS_SERVICE_PORT=3002
       - CITIES_SERVICE_HOST=crimea-cities
       - CITIES_SERVICE_PORT=3006
       - SERVICE_PORT=3000
