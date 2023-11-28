@@ -34,10 +34,13 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: services-updater
+    environment:
+      DOCKER_CONFIG: /config
     restart: always
     volumes:
+      - ../init/config:/config/
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 15 --scope myscope
+    command: --interval 50 --scope myscope
     networks:
       - crimea-network
 
