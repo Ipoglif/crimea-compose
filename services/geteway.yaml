@@ -13,8 +13,8 @@ services:
       - USERS_SERVICE_PORT=3002
       - CITIES_SERVICE_HOST=crimea-cities
       - CITIES_SERVICE_PORT=3006
-      - SERVICE_PORT=3000
+      - SERVICE_PORT=8000
     ports:
-      - 3000:3000
+      - 8000:8000
     networks:
       - crimea-network
