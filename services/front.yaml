@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  crimea-front:
+    image: ipoglif/crimea-front:latest
+    container_name: crimea-front
+    labels:
+      - "com.centurylinklabs.watchtower.scope=myscope"
+    environment:
+      - API_URL=https://api.dev-co.ru
+      - NEXTAUTH_SECRET=pk39snvbqbm2dfasd0!
+      - NEXTAUTH_URL=https://dev-co.ru
+    ports:
+      - 3000:3000
+    networks:
+      - crimea-network
